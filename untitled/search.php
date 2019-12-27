@@ -3,8 +3,8 @@ function printMark($result){
     while(($row=$result->fetch_assoc())!=false){
         echo '<div class="card">
                 <a href="#" class="title">'.$row["mark"].'</a>
-                <img src="http://via.placeholder.com/150x150"/>
-                <div class="description">
+          
+                <div>
                     <label>'.$row["model"].'</label>
                 </div>
                 <div>
@@ -79,7 +79,7 @@ $result=$mysqli->query("SELECT * FROM products where mark='$search' or model='$s
 <div class="container">
     <header>
         <nav>
-            <a href="#" class='active'>Home</a><a href="#">Contacts</a><a href="#">About us</a><a href="#">Comitee</a>
+            <a href="index.php">Home</a>
         </nav>
     </header>
 

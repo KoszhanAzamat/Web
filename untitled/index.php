@@ -3,12 +3,12 @@ function printPr($result){
 while(($row=$result->fetch_assoc())!=false) {
     echo '<div class="card">
                 <a href="#" class="title">'.$row["mark"].'</a>
-                <img src="http://via.placeholder.com/150x150"/>
-                <div class="description">
-                    <label>'.$row["model"].'</label>
+                
+                <div>
+                    <label>Model: '.$row["model"].'</label>
                 </div>
                 <div>
-                    <label>'.$row["memory"].'</label>
+                    <label>'.$row["memory"].' GB memory</label>
                 </div>
                 <div class="price">
                     <label>'.$row["cell"].'</label>$
@@ -78,7 +78,7 @@ $result=$mysqli->query("SELECT * from products");
 <div class="container">
     <header>
         <nav>
-            <a href="#" class='active'>Home</a><a href="#">Contacts</a><a href="#">About us</a><a href="#">Comitee</a><a href="signin.php">Cabinet</a>
+            <a href="#" class='active'>Phones</a><a href="#">Gadgets</a><a href="#">Access</a><a href="signin.php">Cabinet</a>
         </nav>
         <div class="logo_part">
             <div class="search">

@@ -2,10 +2,16 @@
 function printPr($result){
     $email_address=$_POST['email_address'];
     $password=$_POST['password'];
+    $count=0;
     while(($row=$result->fetch_assoc())!=false) {
         if($row['email_address']==$email_address&&$row['password']==$password){
-            echo '<div class="col-md-8 order-md-1">
-      <form class="needs-validation" novalidate="">
+            echo '<header>
+        <nav>
+            <a href="index.php">Home</a>
+        </nav>
+    </header>
+<form name="test" action="cabinet1.php" method="post">
+<div class="col-md-8 order-md-1">
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">Mark</label>
@@ -19,27 +25,33 @@ function printPr($result){
         </div>
         <div class="mb-3">
           <label for="email">Email <span class="text-muted">(Optional)</span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
         </div>
         <div class="row">
           <div class="col-md-5 mb-3">
-            <label for="country">Type</label>
-            <select class="custom-select d-block w-100" id="country" required="">
+            <label for="country">Memory</label>
+            <select class="custom-select d-block w-100" name="memory" id="country" required="">
               <option value="">Choose...</option>
-              <option>Phones</option>
-              <option>Accessories</option>
-              <option>Gadgets</option>
+              <option>16</option>
+              <option>32</option>
+              <option>64</option>
+              <option>128</option>
             </select>
           </div>
+          <label for="email">Price <span class="text-muted">(Optional)</span></label>
+          <input  class="form-control" name="price" id="email" placeholder="Price">
           
           
         </div>
         
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+        <button type="submit">Continue to checkout</button>
       </form>
-    </div>';
+    </div>
+    </form>';
+            break;
         }
     }
+    echo 'Your email or password is noy correct'.'<form name="test" action="signin.php"> <input type="submit" value="Signin again"></form>';
 }
 $email_address=$_POST['email_address'];
 $password=$_POST['password'];
@@ -52,6 +64,14 @@ $result=$mysqli->query("SELECT * from products");
 <head>
     <meta charset="utf-8">
     <style>
+        nav a{
+            display: inline-block;
+            text-decoration:none;
+            background-color:lightgrey;
+            width:25%;
+            color: black;
+            text-align:center;
+        }
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -74,7 +94,6 @@ $result=$mysqli->query("SELECT * from products");
 
     </style>
     <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
 </head>
 <body>
 <?php printPr($results)?>
